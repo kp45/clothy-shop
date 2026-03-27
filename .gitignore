@@ -1,0 +1,16 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Environment and secrets
+.env
+.env.local
+.env.*.local
+
+# Virtual envs
+venv/
+.venv/
+
+# Uploaded/static artifacts
+static/images/*
+!static/images/.gitkeep
