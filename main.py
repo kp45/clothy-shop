@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.staticfiles import StaticFiles
+from fastapi.staticfiles import StaticFiles  # kept for any legacy static assets
 from sqlalchemy import text
 import os
 
@@ -64,11 +64,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-# ── Serve uploaded images as static files ────────────────────────────────────
-# Images accessible at: http://YOUR_IP:8000/static/images/filename.jpg
-os.makedirs("static/images", exist_ok=True)
-app.mount("/static", StaticFiles(directory="static"), name="static")
 
 # ── Routes ───────────────────────────────────────────────────────────────────
 app.include_router(items.router)
